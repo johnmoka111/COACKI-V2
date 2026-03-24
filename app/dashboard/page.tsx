@@ -67,7 +67,7 @@ export default function Home() {
       head: [["Producteur", "Groupement", "Pieds", "Altitude", "Coordonnées"]],
       body: tableData,
       theme: "striped",
-      headStyles: { fillStyle: "shape", fillColor: [13, 27, 42] },
+      headStyles: { fillColor: [13, 27, 42] },
     });
 
     doc.save("registre-parcelles-coacki.pdf");
