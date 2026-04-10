@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌿 COACKI - Coopérative Agricole du Kivu
 
-## Getting Started
+[![Next.js](https://img.shields.io/badge/Next.js-15.0-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![Prisma](https://img.shields.io/badge/Prisma-7.5-2D3748?style=for-the-badge&logo=prisma)](https://www.prisma.io/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-First, run the development server:
+> **"Le café est notre vie."**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+COACKI (Coopérative Agricole du Kivu) est une plateforme numérique moderne dédiée à la promotion et à la gestion de la production de café Bourbon de haute qualité au cœur du Sud-Kivu, République Démocratique du Congo.
+
+---
+
+## 🚀 Vision & Mission
+
+Née en 2022 à **Mbinga-Sud**, COACKI regroupe aujourd'hui plus de **276 membres engagés**. Notre mission est de cultiver l'excellence tout en assurant un impact social positif et un développement durable pour les communautés de Kalehe.
+
+- **Qualité Premium** : Spécialistes du café Bourbon avec un score de dégustation minimal de **85+**.
+- **Impact Social** : Soutien aux producteurs locaux et autonomisation des femmes.
+- **Durabilité** : Pratiques agricoles respectueuses de l'environnement du Kivu.
+
+---
+
+## 🛠️ Stack Technique
+
+Cette application est bâtie avec les technologies les plus récentes pour garantir performance, sécurité et élégance :
+
+- **Frontend** : [Next.js 15+](https://nextjs.org/) (App Router)
+- **Styling** : [Tailwind CSS 4](https://tailwindcss.com/) & [Framer Motion](https://www.framer.com/motion/) pour des animations fluides.
+- **Base de données** : [Prisma ORM](https://www.prisma.io/) avec SQLite (compatible PostgreSQL pour la production).
+- **Cartographie** : [Leaflet](https://leafletjs.com/) pour la géolocalisation des plantations.
+- **UI Components** : [Lucide React](https://lucide.dev/) pour l'iconographie premium.
+
+---
+
+## ✨ Fonctionnalités Clés
+
+- 📊 **Dashboard Administratif** : Gestion complète de la coopérative, des membres et des récoltes.
+- ☕ **Catalogue de Café** : Présentation détaillée des lots Bourbon et de leurs profils aromatiques.
+- 🗺️ **Carte Interactive** : Visualisation des zones de culture et des infrastructures (stations de lavage).
+- 📰 **Gestion des Actualités** : Flux dynamique pour informer la communauté sur la vie de la coopérative.
+- 📱 **Mobile-First Responsive** : Une interface ergonomique optimisée pour tous les appareils.
+
+---
+
+## 📂 Structure du Projet
+
+```text
+├── app/                  # Application Next.js (Pages, API, Layouts)
+│   ├── dashboard/        # Interface administrative
+│   ├── galerie/          # Visuels des récoltes
+│   └── api/              # Endpoints backend
+├── components/           # Composants UI réutilisables
+├── lib/                  # Utilitaires et configuration (Prisma, data)
+├── prisma/               # Schéma de base de données
+├── public/               # Assets statiques
+└── legacy/               # (Optionnel) Anciens scripts PHP/Services
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Installation et Démarrage
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Cloner le dépôt** :
+   ```bash
+   git clone https://github.com/johnmoka111/COACKI-V2.git
+   cd COACKI-V2
+   ```
 
-## Learn More
+2. **Installer les dépendances** :
+   ```bash
+   npm install
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. **Configurer la base de données** :
+   ```bash
+   npx prisma generate
+   npx prisma db push
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **Lancer le serveur de développement** :
+   ```bash
+   npm run dev
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🤝 Partenariat & Contact
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Nous sommes ouverts aux collaborations avec les torréfacteurs, amateurs de café et partenaires de développement.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 📧 **Email** : [coackicoop@gmail.com](mailto:coackicoop@gmail.com)
+- 📍 **Localisation** : Mbinga-Sud, Kalehe, Sud-Kivu, RDC
+
+---
+*Réalisé avec ❤️ pour la communauté COACKI.*
