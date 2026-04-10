@@ -1,86 +1,69 @@
 # 🌿 COACKI - Coopérative Agricole du Kivu
+![Project Banner](https://img.shields.io/badge/Status-Premium_UI_Overhaul-blue?style=for-the-badge)
 
 [![PHP](https://img.shields.io/badge/PHP-8.2-777BB4?style=for-the-badge&logo=php)](https://www.php.net/)
 [![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql)](https://www.mysql.com/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-> **"Le café est notre vie."**
-
-COACKI (Coopérative Agricole du Kivu) est une plateforme numérique robuste et légère bâtie en PHP, dédiée à la gestion de la production de café Bourbon de haute qualité au Sud-Kivu, République Démocratique du Congo.
-
----
-
-## 🚀 Vision & Mission
-
-Basée à **Mbinga-Sud**, COACKI regroupe plus de **276 membres engagés**. Cette application gère l'ensemble de l'écosystème de la coopérative, de la production à la commercialisation, avec un fort accent sur l'impact social et la qualité (Score 85+).
+> **"Le café est notre vie."**  
+> COACKI (Coopérative Agricole du Kivu) est une plateforme numérique de pointe dédiée à la gestion de la production de café Bourbon de haute qualité au Sud-Kivu, RDC.
 
 ---
 
-## 🛠️ Architecture & Stack
+## 💎 Mise à jour Majeure : Premium UI Overhaul (Avril 2026)
 
-L'application utilise une architecture **MVC (Modèle-Vue-Contrôleur)** personnalisée, optimisée pour la rapidité et la simplicité de déploiement :
+Le système a bénéficié d'une refonte totale de l'expérience utilisateur (UX) et de l'interface (UI) pour atteindre les standards des applications professionnelles modernes.
 
-- **Backend** : PHP 8.2+ (MVCR natif)
-- **Base de données** : MySQL / MariaDB
-- **Frontend** : HTML5, Tailwind CSS (via CDN), Lucide Icons
-- **Sécurité** : Gestion native des sessions, protection CSRF, filtrage des entrées PDO
-- **Serveur** : Compatible Apache / Nginx (XAMPP recommandé pour le développement local)
-
----
-
-## ✨ Fonctionnalités Majeures
-
-- 📊 **Dashboard Administratif** : Gestion des membres, des rôles et des accès sécurisés.
-- 📰 **Système d'Actualités** : Publication et gestion complète des articles avec engagement (likes, partages).
-- ☕ **Espace Partenariat** : CRM pour la gestion des demandes de collaboration et échantillons.
-- 🗺️ **Cartographie des Plantations** : Visualisation des zones géographiques de culture.
-- 🔐 **Gestion des Utilisateurs** : Système complet de réinitialisation de mot de passe par questions de sécurité.
+### ✨ Nouvelles Fonctionnalités UI
+*   **Système de Stepper Forms** : Les formulaires complexes (Inscription, Partenariat, Recrutement) sont désormais divisés en étapes logiques, réduisant la charge cognitive et améliorant le taux de conversion.
+*   **Design Harmonisé "Professional Blue"** : Adoption d'un système de design épuré utilisant des "Outlined Text Fields", des rayons de courbure de 12px à 40px, et des icônes de préfixe pour une clarté maximale.
+*   **Identité de Marque Intégrée** : Migration complète vers le logo officiel de COACKI dans les headers, les sidebars administratifs et les notifications.
+*   **CRM Amélioré** : La gestion des partenariats inclut désormais la prévisualisation des logos d'entreprises et les badges de notification en temps réel sur le tableau de bord.
 
 ---
 
-## 📂 Structure du Répertoire
+## 🛠️ Architecture Technologique
 
-```text
-├── app/
-│   ├── Controllers/      # Logique métier et routage des requêtes
-│   ├── Core/             # Moteur de l'application (Autoloader, DB, Env)
-│   ├── Models/           # Interaction avec la base de données
-│   ├── Services/         # Services transversaux (Mail, etc.)
-│   └── Views/            # Templates HTML/PHP (UI)
-├── database/             # Schémas SQL et migrations
-├── uploads/              # Médias et documents téléversés
-├── assets/               # Assets statiques (CSS, JS, Images)
-├── index.php             # Point d'entrée unique et routeur
-└── .env                  # Configuration des variables d'environnement
-```
+L'application repose sur une architecture **MVC (Modèle-Vue-Contrôleur)** robuste sans dépendances lourdes pour une performance optimale :
+
+- **Backend** : PHP 8.2+ Natif (Architecture MVCR).
+- **Frontend** : Tailwind CSS, Lucide Icons, Google Fonts (Roboto & Inter).
+- **Système de Migration** : Script de "Self-Healing" `update_db.php` pour la synchronisation automatique des schémas de données.
+- **Sécurité** : Protection par Questions de Récupération, hachage bcrypt, et routage sécurisé.
 
 ---
 
-## 🛠️ Installation
+## ✨ Modules du Système
 
-1. **Cloner le dépôt** dans votre dossier `htdocs` :
+| Module | Description | Public |
+| :--- | :--- | :--- |
+| **Pôle Partenariat** | Formulaire intelligent avec upload de logo et détection automatique des types de collaboration. | Visiteurs |
+| **Dashboard Admin** | Monitoring global, statistiques de collecte (12.5t) et gestion des abonnés. | Admin |
+| **Recrutement CRM** | Inscription de nouveaux membres via un sélecteur de rôle visuel et génération de mots de passe. | Admin |
+| **Articles & News** | Éditeur riche (TinyMCE) avec système de brouillon local automatique. | Staff |
+
+---
+
+## 📂 Installation Rapide
+
+1. **Environnement** : Installez [XAMPP](https://www.apachefriends.org/) (PHP 8.2+).
+2. **Déploiement** : 
    ```bash
    git clone https://github.com/johnmoka111/COACKI-V2.git
    ```
-
-2. **Base de données** :
-   - Créez une base nommée `coacki_db`.
-   - Importez le fichier `database/schema.sql`.
-
-3. **Configuration** :
-   - Renommez `.env.example` en `.env` (si applicable) ou configurez vos accès DB dans `app/Core/Database.php`.
-
-4. **Accès** :
-   - Lancez Apache/MySQL via XAMPP.
-   - Accédez à `http://localhost/COACKI`.
+3. **Synchronisation DB** : 
+   - Créez `coacki_db` dans phpMyAdmin.
+   - Visitez `http://localhost/COACKI/update_db.php` pour générer automatiquement les tables et colonnes nécessaires.
+4. **Prêt !** Accédez à `http://localhost/COACKI`.
 
 ---
 
-## 🤝 Contact
+## 🤝 Engagement & Impact Social
+COACKI regroupe **276 membres** (94 femmes, 182 hommes). Chaque grain de café raconte l'histoire de la résilience du groupement de **Mbinga-Sud** à Kalehe.
 
-- 📧 **Email** : [coackicoop@gmail.com](mailto:coackicoop@gmail.com)
-- 📍 **Localisation** : Mbinga-Sud, Kalehe, Sud-Kivu, RDC
+- 📧 **Contact** : [coackicoop@gmail.com](mailto:coackicoop@gmail.com)
+- 📍 **Siège** : Munanira, Kalehe, Sud-Kivu, RDC
 
 ---
-*Développé pour l'excellence du café congolais.*
+*Développé avec passion pour l'excellence durable.*
