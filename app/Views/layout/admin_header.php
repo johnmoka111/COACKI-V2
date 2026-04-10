@@ -134,16 +134,14 @@
 
 <!-- ═══ SIDEBAR ADMIN DESKTOP ═══ -->
 <aside class="hidden md:flex flex-col w-64 fixed inset-y-0 left-0 bg-forest border-r border-forest/10 z-50 text-white shadow-2xl">
-    <div class="h-20 flex items-center justify-center border-b border-white/10">
-        <a href="<?= BASE_URL ?>/dashboard" class="flex items-center gap-3 hover:scale-105 transition-transform" title="Tableau de bord">
-            <div class="h-10 w-10 bg-white rounded-xl flex items-center justify-center shadow-lg">
-                <i data-lucide="layout-dashboard" class="text-forest" style="width:22px;height:22px"></i>
-            </div>
-            <span class="font-black text-2xl tracking-tighter text-white">ADMIN<span class="text-gold">.</span></span>
+    <div class="h-24 flex items-center justify-center border-b border-white/5 px-6">
+        <a href="<?= BASE_URL ?>/dashboard" class="flex flex-col items-center gap-2 group transition-all" title="Tableau de bord">
+            <img src="<?= BASE_URL ?>/logo.png" alt="Logo" class="h-12 w-auto object-contain brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity">
+            <span class="font-black text-xs uppercase tracking-[0.3em] text-gold/80 group-hover:text-gold transition-colors">COACKI Admin</span>
         </a>
     </div>
 
-    <nav class="flex-1 overflow-y-auto px-4 py-8 space-y-2 relative">
+    <nav class="flex-1 overflow-y-auto px-4 py-8 space-y-2 relative no-scrollbar">
         <div class="text-[10px] font-black uppercase tracking-widest text-white/40 mb-4 px-3">Menu Principal</div>
         
         <?php $url = trim($_GET['url'] ?? '', '/'); ?>

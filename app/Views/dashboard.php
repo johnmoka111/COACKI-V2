@@ -111,15 +111,14 @@
                         <p class="text-[10px] font-bold text-zinc-400 uppercase">Mot de passe</p>
                     </div>
                 </a>
-
-                <!-- Action 4: CRM -->
-                <a href="<?= BASE_URL ?>/admin/users" class="bg-white p-6 md:p-8 rounded-[40px] border border-zinc-100 shadow-lg shadow-zinc-500/5 hover:bg-blue-600 hover:border-blue-600 group transition-all duration-500">
-                    <div class="h-14 w-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-6 group-hover:bg-blue-500 group-hover:text-white transition-all">
+                <!-- Action 4: CRM Personnel -->
+                <a href="<?= BASE_URL ?>/admin/users" class="bg-white p-6 md:p-8 rounded-[40px] border border-zinc-100 shadow-lg shadow-zinc-500/5 hover:bg-zinc-800 hover:border-zinc-800 group transition-all duration-500">
+                    <div class="h-14 w-14 bg-zinc-50 rounded-2xl flex items-center justify-center text-zinc-400 mb-6 group-hover:bg-white/10 group-hover:text-white transition-all">
                         <i data-lucide="users" style="width:24px;height:24px"></i>
                     </div>
-                    <div class="space-y-1">
-                        <h4 class="text-sm font-black text-forest uppercase tracking-widest group-hover:text-white transition-colors">Personnel</h4>
-                        <p class="text-[10px] font-bold text-zinc-400 group-hover:text-white/60 transition-colors uppercase text-nowrap">Gestion CRM</p>
+                    <div class="space-y-1 text-nowrap">
+                        <h4 class="text-xs font-black text-forest uppercase tracking-widest group-hover:text-white transition-colors">Personnel</h4>
+                        <p class="text-[9px] font-bold text-zinc-400 group-hover:text-white/60 transition-colors uppercase">Gestion Staff</p>
                     </div>
                 </a>
                 <?php endif; ?>
@@ -127,28 +126,47 @@
             
             <?php if (in_array($role, ['superadmin', 'admin'])): ?>
             <!-- Wide Actions -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                <!-- Partenariats Card -->
+                <a href="<?= BASE_URL ?>/admin/partenariats" class="bg-white p-8 rounded-[40px] border border-zinc-100 shadow-xl shadow-zinc-500/5 flex items-center justify-between hover:border-blue-500 transition-all group relative overflow-hidden">
+                    <?php if ($pending_parts > 0): ?>
+                        <div class="absolute top-0 right-0 bg-blue-500 text-white px-4 py-1 rounded-bl-2xl text-[10px] font-black uppercase tracking-widest animate-pulse">
+                            <?= $pending_parts ?> Nouveau(x)
+                        </div>
+                    <?php endif; ?>
+                    <div class="flex items-center gap-6">
+                        <div class="h-16 w-16 bg-blue-50 text-blue-600 rounded-[24px] flex items-center justify-center group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                            <i data-lucide="handshake" style="width:28px;height:28px"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-black text-forest tracking-tight">Partenariats</h4>
+                            <p class="text-xs font-bold text-zinc-400 uppercase tracking-widest">Demandes & CRM</p>
+                        </div>
+                    </div>
+                    <i data-lucide="chevron-right" class="text-zinc-300 group-hover:text-blue-500 transition-colors"></i>
+                </a>
+
                 <a href="<?= BASE_URL ?>/admin/newsletter" class="bg-white p-8 rounded-[40px] border border-zinc-100 shadow-xl shadow-zinc-500/5 flex items-center justify-between hover:scale-[1.01] transition-all group">
                     <div class="flex items-center gap-6">
                         <div class="h-16 w-16 bg-gold/10 text-gold rounded-[24px] flex items-center justify-center group-hover:bg-gold group-hover:text-white transition-colors">
                             <i data-lucide="megaphone" style="width:28px;height:28px"></i>
                         </div>
                         <div>
-                            <h4 class="text-lg font-black text-forest tracking-tight">Marketing & Newsletter</h4>
-                            <p class="text-xs font-bold text-zinc-400 uppercase tracking-widest">Gérer les abonnés et les campagnes</p>
+                            <h4 class="text-lg font-black text-forest tracking-tight">Newsletter</h4>
+                            <p class="text-xs font-bold text-zinc-400 uppercase tracking-widest">Gérer les abonnés</p>
                         </div>
                     </div>
                     <i data-lucide="chevron-right" class="text-zinc-300 group-hover:text-gold transition-colors"></i>
                 </a>
 
-                <a href="<?= BASE_URL ?>/admin/campaign/create" class="bg-forest p-8 rounded-[40px] shadow-2xl shadow-forest/20 flex items-center justify-between hover:scale-[1.01] transition-all group">
+                <a href="<?= BASE_URL ?>/admin/campaign/create" class="bg-forest p-8 rounded-[40px] shadow-2xl shadow-forest/20 flex items-center justify-between hover:scale-[1.01] transition-all group lg:col-span-1">
                     <div class="flex items-center gap-6">
                         <div class="h-16 w-16 bg-white/10 text-gold rounded-[24px] flex items-center justify-center group-hover:bg-gold group-hover:text-forest transition-colors">
                             <i data-lucide="send-to-back" style="width:28px;height:28px"></i>
                         </div>
                         <div>
-                            <h4 class="text-lg font-black text-white tracking-tight">Envoyer une Campagne</h4>
-                            <p class="text-xs font-bold text-gold/60 uppercase tracking-widest">Diffusion globale par Email</p>
+                            <h4 class="text-lg font-black text-white tracking-tight">Campagne</h4>
+                            <p class="text-xs font-bold text-gold/60 uppercase tracking-widest">Emailing Global</p>
                         </div>
                     </div>
                     <i data-lucide="arrow-right" class="text-gold"></i>

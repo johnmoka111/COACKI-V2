@@ -144,15 +144,17 @@
 </head>
 <body class="font-sans text-forest selection:bg-gold/30">
 
-<?php $currentUrl = trim($_GET['url'] ?? '', '/'); ?>
+<?php 
+$currentUrl = trim($_GET['url'] ?? '', '/'); 
+$isLoginPage = ($currentUrl === 'login');
+?>
 
+<?php if (!$isLoginPage): ?>
 <!-- ═══ NAV DESKTOP ═══ -->
 <nav class="hidden md:flex fixed w-full z-50 bg-white/90 backdrop-blur-xl border-b border-forest/10 shadow-sm">
     <div class="max-w-7xl mx-auto px-6 h-20 w-full flex items-center justify-between">
         <a href="<?= BASE_URL ?>/" class="flex items-center gap-3">
-            <div class="h-10 w-10 bg-forest rounded-xl flex items-center justify-center shadow-lg">
-                <i data-lucide="coffee" class="text-gold" style="width:22px;height:22px"></i>
-            </div>
+            <img src="<?= BASE_URL ?>/logo.png" alt="Logo COACKI" class="h-12 w-12 object-contain">
             <span class="font-black text-2xl tracking-tighter text-forest">COACKI</span>
         </a>
 
@@ -200,9 +202,7 @@
 <!-- ═══ NAV MOBILE TOP ═══ -->
 <header class="md:hidden fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-xl border-b border-forest/10 h-16 flex items-center justify-between px-5">
     <a href="<?= BASE_URL ?>/" class="flex items-center gap-2">
-        <div class="h-9 w-9 bg-forest rounded-xl flex items-center justify-center">
-            <i data-lucide="coffee" class="text-gold" style="width:18px;height:18px"></i>
-        </div>
+        <img src="<?= BASE_URL ?>/logo.png" alt="Logo COACKI" class="h-10 w-10 object-contain">
         <span class="font-black text-xl tracking-tighter text-forest">COACKI</span>
     </a>
     <?php if (!empty($_SESSION['user'])): ?>
@@ -216,6 +216,7 @@
         </a>
     <?php endif; ?>
 </header>
+<?php endif; ?>
 
 <!-- ═══ CONTENU PRINCIPAL ═══ -->
-<main class="pt-16 md:pt-20 pb-24 md:pb-0">
+<main class="<?= $isLoginPage ? '' : 'pt-16 md:pt-20 pb-24 md:pb-0' ?>">

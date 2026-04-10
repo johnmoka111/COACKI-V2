@@ -1,8 +1,13 @@
 </main>
 
+<?php 
+$currentUrl = trim($_GET['url'] ?? '', '/'); 
+$isLoginPage = ($currentUrl === 'login');
+?>
+
+<?php if (!$isLoginPage): ?>
 <!-- ═══ NAV MOBILE BOTTOM (Mobile First) ═══ -->
 <nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-white/95 backdrop-blur-2xl border-t border-forest/10 pb-[env(safe-area-inset-bottom)] shadow-[0_-10px_40px_rgba(0,0,0,0.05)] overflow-x-auto no-scrollbar">
-    <?php $currentUrl = trim($_GET['url'] ?? '', '/'); ?>
     <div class="flex items-center min-w-[320px] w-full h-20 px-2 justify-between">
         <a href="<?= BASE_URL ?>/" class="flex-1 flex flex-col items-center gap-1.5 <?= ($currentUrl === '' || $currentUrl === 'home') ? 'text-gold' : 'text-forest/60' ?> hover:text-gold transition-colors">
             <i data-lucide="home" style="width:20px;height:20px"></i>
@@ -29,9 +34,7 @@
         <!-- Logo & Présentation -->
         <div class="space-y-6">
             <div class="flex items-center gap-3">
-                <div class="h-10 w-10 bg-white/10 rounded-xl flex items-center justify-center">
-                    <i data-lucide="coffee" class="text-gold" style="width:24px;height:24px"></i>
-                </div>
+                <img src="<?= BASE_URL ?>/logo.png" alt="Logo" class="h-10 w-auto object-contain brightness-0 invert">
                 <span class="font-black text-2xl tracking-tighter">COACKI</span>
             </div>
             <p class="text-white/60 text-sm leading-relaxed">
@@ -108,6 +111,7 @@
     </form>
     <div id="popupNlResult" class="mt-2 text-[10px] font-black uppercase tracking-tighter text-center h-4"></div>
 </div>
+<?php endif; ?>
 
 <!-- TOAST & CONFIRM INJECTION -->
 <div id="globalToast" class="fixed top-8 right-0 left-0 mx-auto w-[90%] md:w-auto md:right-10 md:left-auto md:max-w-sm bg-white/80 backdrop-blur-2xl rounded-[28px] shadow-[0_30px_90px_-20px_rgba(0,0,0,0.2)] border border-white/40 p-5 transform -translate-y-[180%] opacity-0 transition-all duration-[800ms] cubic-bezier-[0.23,1,0.32,1] z-[1000] flex items-center gap-5">

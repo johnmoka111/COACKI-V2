@@ -1,54 +1,74 @@
-<div class="min-h-[85vh] flex items-center justify-center py-20 px-6">
-    <div class="w-full max-w-md bg-white rounded-[48px] shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-500 border border-zinc-100 relative">
-        <div class="absolute -top-10 -right-10 w-40 h-40 bg-gold/10 rounded-full blur-[60px]"></div>
-        
-        <div class="p-10 md:p-12 relative z-10">
-            <div class="flex justify-center mb-10">
-                <div class="h-20 w-20 bg-forest rounded-3xl flex items-center justify-center shadow-2xl shadow-forest/20 rotate-3">
-                    <i data-lucide="layout-dashboard" class="text-gold" style="width:32px;height:32px"></i>
-                </div>
+<div class="min-h-screen flex items-center justify-center p-6 bg-[#f8fafc] relative overflow-hidden">
+    <!-- Decorative background elements -->
+    <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-500/5 rounded-full blur-[120px]"></div>
+    <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-600/5 rounded-full blur-[120px]"></div>
+
+    <div class="w-full max-w-md relative">
+        <!-- Back Link -->
+        <a href="<?= BASE_URL ?>/" class="absolute -top-16 left-0 flex items-center gap-2 text-slate-400 hover:text-blue-600 transition-all font-bold text-sm group">
+            <i data-lucide="arrow-left" class="w-4 h-4 group-hover:-translate-x-1 transition-transform"></i>
+            Retour au site
+        </a>
+
+        <div class="bg-white rounded-[40px] shadow-[0_20px_70px_-15px_rgba(0,0,0,0.1)] border border-white p-8 md:p-12 relative overflow-hidden">
+            
+            <div class="flex flex-col items-center mb-10">
+                <img src="<?= BASE_URL ?>/logo.png" alt="Logo" class="h-20 w-auto mb-6">
+                <h1 class="text-3xl font-black text-slate-900 tracking-tight text-center">Espace Membres</h1>
+                <p class="text-slate-400 text-sm font-bold mt-2 text-center uppercase tracking-widest">Connectez-vous à COACKI</p>
             </div>
-            
-            <h1 class="text-3xl font-black text-forest text-center mb-1 tracking-tighter">Accès Sécurisé</h1>
-            <p class="text-zinc-400 text-center font-bold text-sm mb-12 italic">Pôle Administration COACKI</p>
-            
+
             <?php if (!empty($error)): ?>
-                <div class="bg-red-50 text-red-500 p-4 rounded-2xl text-[10px] font-black uppercase tracking-widest mb-8 border border-red-100 flex items-center gap-3">
+                <div class="bg-red-50 text-red-600 p-4 rounded-2xl text-[11px] font-black uppercase tracking-widest mb-8 border border-red-100 flex items-center gap-3">
                     <i data-lucide="shield-alert" class="w-4 h-4"></i> <?= htmlspecialchars($error) ?>
                 </div>
             <?php endif; ?>
 
-            <form method="POST" action="<?= BASE_URL ?>/login" class="space-y-4">
-                <div class="premium-form-group">
-                    <input type="email" name="email" required placeholder=" " 
-                           class="premium-input !bg-zinc-50 border-transparent">
-                    <label class="premium-label">Adresse Email</label>
-                    <i data-lucide="mail" class="absolute right-5 top-[1.4rem] text-zinc-300 pointer-events-none" style="width:18px;height:18px"></i>
+            <form method="POST" action="<?= BASE_URL ?>/login" class="space-y-6">
+                <!-- Email Field -->
+                <div class="space-y-2">
+                    <label class="text-[10px] font-bold uppercase text-slate-400 tracking-widest ml-1">Adresse Email</label>
+                    <div class="relative group">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-blue-500 transition-colors">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                        </div>
+                        <input type="email" name="email" required placeholder="nom@exemple.com"
+                               class="block w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-slate-900 font-bold placeholder:text-slate-300 focus:outline-none focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 transition-all">
+                    </div>
                 </div>
-                
-                <div class="premium-form-group">
-                    <input type="password" name="password" required placeholder=" " 
-                           class="premium-input !bg-zinc-50 border-transparent">
-                    <label class="premium-label">Mot de passe</label>
-                    <i data-lucide="lock" class="absolute right-5 top-[1.4rem] text-zinc-300 pointer-events-none" style="width:18px;height:18px"></i>
+
+                <!-- Password Field -->
+                <div class="space-y-2">
+                    <div class="flex justify-between items-center px-1">
+                        <label class="text-[10px] font-bold uppercase text-slate-400 tracking-widest">Mot de passe</label>
+                        <a href="<?= BASE_URL ?>/forgot_password" class="text-[10px] font-bold text-blue-600 uppercase tracking-widest hover:underline">Oublié ?</a>
+                    </div>
+                    <div class="relative group">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-blue-500 transition-colors">
+                            <i data-lucide="lock" class="w-5 h-5"></i>
+                        </div>
+                        <input type="password" name="password" required placeholder="••••••••"
+                               class="block w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-slate-900 font-bold placeholder:text-slate-300 focus:outline-none focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 transition-all">
+                    </div>
                 </div>
-                
-                <div class="flex justify-end px-1">
-                    <a href="<?= BASE_URL ?>/forgot_password" class="text-[10px] font-black text-gold uppercase tracking-[0.2em] hover:underline transition-all">Identifiants perdus ?</a>
-                </div>
-                
-                <button type="submit" class="w-full h-16 bg-forest text-gold py-4 rounded-2xl text-[11px] font-black uppercase tracking-[0.2em] shadow-2xl shadow-forest/30 hover:scale-[1.02] active:scale-[0.96] transition-all flex justify-center items-center gap-3 mt-8">
-                    S'authentifier <i data-lucide="key-round" style="width:18px;height:18px"></i>
+
+                <button type="submit" class="w-full h-16 bg-blue-600 text-white rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl shadow-blue-500/20 hover:bg-blue-700 active:scale-[0.98] transition-all flex items-center justify-center gap-3">
+                    Se connecter 
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </button>
             </form>
-            
-            <div class="mt-12 pt-8 border-t border-zinc-50 text-center">
-                <p class="text-[12px] text-zinc-400 font-bold lowercase">
-                    Pas encore de catalogue ? 
-                    <a href="<?= BASE_URL ?>/register" class="text-forest font-black hover:text-gold transition-colors block mt-1 uppercase tracking-widest text-[10px]">Demander une adhésion</a>
+
+            <div class="mt-10 pt-8 border-t border-slate-50 text-center">
+                <p class="text-sm font-bold text-slate-400">
+                    Nouveau ici ? 
+                    <a href="<?= BASE_URL ?>/register" class="text-blue-600 font-black hover:text-blue-700 ml-1">Créer un compte</a>
                 </p>
             </div>
         </div>
+        
+        <p class="text-center mt-8 text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">
+            &copy; <?= date('Y') ?> COACKI - Plateforme Sécurisée
+        </p>
     </div>
 </div>
 
