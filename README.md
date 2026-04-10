@@ -1,96 +1,86 @@
 # 🌿 COACKI - Coopérative Agricole du Kivu
 
-[![Next.js](https://img.shields.io/badge/Next.js-15.0-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
-[![Prisma](https://img.shields.io/badge/Prisma-7.5-2D3748?style=for-the-badge&logo=prisma)](https://www.prisma.io/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
+[![PHP](https://img.shields.io/badge/PHP-8.2-777BB4?style=for-the-badge&logo=php)](https://www.php.net/)
+[![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql)](https://www.mysql.com/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 > **"Le café est notre vie."**
 
-COACKI (Coopérative Agricole du Kivu) est une plateforme numérique moderne dédiée à la promotion et à la gestion de la production de café Bourbon de haute qualité au cœur du Sud-Kivu, République Démocratique du Congo.
+COACKI (Coopérative Agricole du Kivu) est une plateforme numérique robuste et légère bâtie en PHP, dédiée à la gestion de la production de café Bourbon de haute qualité au Sud-Kivu, République Démocratique du Congo.
 
 ---
 
 ## 🚀 Vision & Mission
 
-Née en 2022 à **Mbinga-Sud**, COACKI regroupe aujourd'hui plus de **276 membres engagés**. Notre mission est de cultiver l'excellence tout en assurant un impact social positif et un développement durable pour les communautés de Kalehe.
-
-- **Qualité Premium** : Spécialistes du café Bourbon avec un score de dégustation minimal de **85+**.
-- **Impact Social** : Soutien aux producteurs locaux et autonomisation des femmes.
-- **Durabilité** : Pratiques agricoles respectueuses de l'environnement du Kivu.
+Basée à **Mbinga-Sud**, COACKI regroupe plus de **276 membres engagés**. Cette application gère l'ensemble de l'écosystème de la coopérative, de la production à la commercialisation, avec un fort accent sur l'impact social et la qualité (Score 85+).
 
 ---
 
-## 🛠️ Stack Technique
+## 🛠️ Architecture & Stack
 
-Cette application est bâtie avec les technologies les plus récentes pour garantir performance, sécurité et élégance :
+L'application utilise une architecture **MVC (Modèle-Vue-Contrôleur)** personnalisée, optimisée pour la rapidité et la simplicité de déploiement :
 
-- **Frontend** : [Next.js 15+](https://nextjs.org/) (App Router)
-- **Styling** : [Tailwind CSS 4](https://tailwindcss.com/) & [Framer Motion](https://www.framer.com/motion/) pour des animations fluides.
-- **Base de données** : [Prisma ORM](https://www.prisma.io/) avec SQLite (compatible PostgreSQL pour la production).
-- **Cartographie** : [Leaflet](https://leafletjs.com/) pour la géolocalisation des plantations.
-- **UI Components** : [Lucide React](https://lucide.dev/) pour l'iconographie premium.
-
----
-
-## ✨ Fonctionnalités Clés
-
-- 📊 **Dashboard Administratif** : Gestion complète de la coopérative, des membres et des récoltes.
-- ☕ **Catalogue de Café** : Présentation détaillée des lots Bourbon et de leurs profils aromatiques.
-- 🗺️ **Carte Interactive** : Visualisation des zones de culture et des infrastructures (stations de lavage).
-- 📰 **Gestion des Actualités** : Flux dynamique pour informer la communauté sur la vie de la coopérative.
-- 📱 **Mobile-First Responsive** : Une interface ergonomique optimisée pour tous les appareils.
+- **Backend** : PHP 8.2+ (MVCR natif)
+- **Base de données** : MySQL / MariaDB
+- **Frontend** : HTML5, Tailwind CSS (via CDN), Lucide Icons
+- **Sécurité** : Gestion native des sessions, protection CSRF, filtrage des entrées PDO
+- **Serveur** : Compatible Apache / Nginx (XAMPP recommandé pour le développement local)
 
 ---
 
-## 📂 Structure du Projet
+## ✨ Fonctionnalités Majeures
+
+- 📊 **Dashboard Administratif** : Gestion des membres, des rôles et des accès sécurisés.
+- 📰 **Système d'Actualités** : Publication et gestion complète des articles avec engagement (likes, partages).
+- ☕ **Espace Partenariat** : CRM pour la gestion des demandes de collaboration et échantillons.
+- 🗺️ **Cartographie des Plantations** : Visualisation des zones géographiques de culture.
+- 🔐 **Gestion des Utilisateurs** : Système complet de réinitialisation de mot de passe par questions de sécurité.
+
+---
+
+## 📂 Structure du Répertoire
 
 ```text
-├── app/                  # Application Next.js (Pages, API, Layouts)
-│   ├── dashboard/        # Interface administrative
-│   ├── galerie/          # Visuels des récoltes
-│   └── api/              # Endpoints backend
-├── components/           # Composants UI réutilisables
-├── lib/                  # Utilitaires et configuration (Prisma, data)
-├── prisma/               # Schéma de base de données
-├── public/               # Assets statiques
-└── legacy/               # (Optionnel) Anciens scripts PHP/Services
+├── app/
+│   ├── Controllers/      # Logique métier et routage des requêtes
+│   ├── Core/             # Moteur de l'application (Autoloader, DB, Env)
+│   ├── Models/           # Interaction avec la base de données
+│   ├── Services/         # Services transversaux (Mail, etc.)
+│   └── Views/            # Templates HTML/PHP (UI)
+├── database/             # Schémas SQL et migrations
+├── uploads/              # Médias et documents téléversés
+├── assets/               # Assets statiques (CSS, JS, Images)
+├── index.php             # Point d'entrée unique et routeur
+└── .env                  # Configuration des variables d'environnement
 ```
 
 ---
 
-## 🛠️ Installation et Démarrage
+## 🛠️ Installation
 
-1. **Cloner le dépôt** :
+1. **Cloner le dépôt** dans votre dossier `htdocs` :
    ```bash
    git clone https://github.com/johnmoka111/COACKI-V2.git
-   cd COACKI-V2
    ```
 
-2. **Installer les dépendances** :
-   ```bash
-   npm install
-   ```
+2. **Base de données** :
+   - Créez une base nommée `coacki_db`.
+   - Importez le fichier `database/schema.sql`.
 
-3. **Configurer la base de données** :
-   ```bash
-   npx prisma generate
-   npx prisma db push
-   ```
+3. **Configuration** :
+   - Renommez `.env.example` en `.env` (si applicable) ou configurez vos accès DB dans `app/Core/Database.php`.
 
-4. **Lancer le serveur de développement** :
-   ```bash
-   npm run dev
-   ```
+4. **Accès** :
+   - Lancez Apache/MySQL via XAMPP.
+   - Accédez à `http://localhost/COACKI`.
 
 ---
 
-## 🤝 Partenariat & Contact
-
-Nous sommes ouverts aux collaborations avec les torréfacteurs, amateurs de café et partenaires de développement.
+## 🤝 Contact
 
 - 📧 **Email** : [coackicoop@gmail.com](mailto:coackicoop@gmail.com)
 - 📍 **Localisation** : Mbinga-Sud, Kalehe, Sud-Kivu, RDC
 
 ---
-*Réalisé avec ❤️ pour la communauté COACKI.*
+*Développé pour l'excellence du café congolais.*
