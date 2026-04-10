@@ -12,8 +12,8 @@ class Partenaire {
     }
 
     public function create(array $data): bool {
-        $sql = "INSERT INTO partenaires (hash_id, nom_complet, organisation, email, telephone, type_partenariat, message)
-                VALUES (:hash_id, :nom_complet, :organisation, :email, :telephone, :type_partenariat, :message)";
+        $sql = "INSERT INTO partenaires (hash_id, nom_complet, organisation, logo_url, email, telephone, type_partenariat, description_autre, message)
+                VALUES (:hash_id, :nom_complet, :organisation, :logo_url, :email, :telephone, :type_partenariat, :description_autre, :message)";
         $stmt = $this->db->prepare($sql);
         return $stmt->execute($data);
     }
