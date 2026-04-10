@@ -20,10 +20,6 @@
             <i data-lucide="handshake" style="width:20px;height:20px"></i>
             <span class="text-[9px] font-black uppercase tracking-tighter">S'allier</span>
         </a>
-        <a href="<?= BASE_URL ?>/dashboard" class="flex-1 flex flex-col items-center gap-1.5 <?= ($currentUrl === 'dashboard' || $currentUrl === 'login' || $currentUrl === 'register') ? 'text-gold' : 'text-forest/60' ?> hover:text-gold transition-colors">
-            <i data-lucide="layout-dashboard" style="width:20px;height:20px"></i>
-            <span class="text-[9px] font-black uppercase tracking-tighter">Admin</span>
-        </a>
     </div>
 </nav>
 
