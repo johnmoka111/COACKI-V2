@@ -12,22 +12,22 @@ class Partenaire {
     }
 
     public function create(array $data): bool {
-        $sql = "INSERT INTO partenaires (hash_id, nom_complet, organisation, logo_url, email, telephone, type_partenariat, description_autre, message)
-                VALUES (:hash_id, :nom_complet, :organisation, :logo_url, :email, :telephone, :type_partenariat, :description_autre, :message)";
+        $sql = "INSERT INTO partenariats (hash_id, nom_complet, organisation, email, telephone, type_partenariat, autre_details, logo_url, message)
+                VALUES (:hash_id, :nom_complet, :organisation, :email, :telephone, :type_partenariat, :autre_details, :logo_url, :message)";
         $stmt = $this->db->prepare($sql);
         return $stmt->execute($data);
     }
 
     public function getAll() {
-        return $this->db->query("SELECT * FROM partenaires ORDER BY created_at DESC")->fetchAll();
+        return $this->db->query("SELECT * FROM partenariats ORDER BY created_at DESC")->fetchAll();
     }
 
     public function markAsRead($hash) {
-        $stmt = $this->db->prepare("UPDATE partenaires SET est_lu = 1 WHERE hash_id = :hash");
+        $stmt = $this->db->prepare("UPDATE partenariats SET est_lu = 1 WHERE hash_id = :hash");
         return $stmt->execute(['hash' => $hash]);
     }
 
     public function getPendingCount() {
-        return $this->db->query("SELECT COUNT(*) FROM partenaires WHERE est_lu = 0")->fetchColumn();
+        return $this->db->query("SELECT COUNT(*) FROM partenariats WHERE est_lu = 0")->fetchColumn();
     }
 }
